@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kancelaria Adwokacka i Doradcy Restrukturyzacyjnego Rafał Musiał</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Playfair Display', 'Georgia', serif; }
+        body {
+            background-color: #f9f8f6; /* Jasne, luksusowe tło w odcieniu alabastru/ciepłej bieli */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a2321;
+        }
+        .container {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 30px;
+        }
+        .tile {
+            flex: 1;
+            background-color: #ffffff; /* Białe, czyste wnętrze kafelka */
+            border: 2px solid #e1ded9; /* Subtelne, kremowo-szare obramowanie */
+            border-radius: 6px;
+            padding: 60px 40px;
+            text-align: center;
+            text-decoration: none;
+            color: #3b4a45; /* Głęboka, elegancka oliwka dla tekstu */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Bardzo lekki, nowoczesny cień */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 280px;
+            position: relative;
+        }
+        .tile h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .tile span {
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            color: #b5a48c; /* Matowe złoto */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .tile:hover {
+            transform: translateY(-5px);
+            border-color: #3b4a45; /* Ramka zmienia się na głęboką oliwkę */
+            box-shadow: 0 15px 35px rgba(59, 74, 69, 0.08); /* Oliwkowy, miękki cień */
+        }
+        @media (max-width: 768px) {
+            .container { flex-direction: column; gap: 20px; }
+            .tile { min-height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/adwokat" class="tile">
+            <h2>Adwokat</h2>
+            <span>Praktyka Adwokacka</span>
+        </a>
+        <a href="/doradca-restrukturyzacyjny" class="tile">
+            <h2>Doradca Restrukturyzacyjny</h2>
+            <span>Kancelaria Restrukturyzacyjna</span>
+        </a>
+    </div>
+</body>
+</html>

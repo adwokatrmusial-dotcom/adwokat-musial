@@ -145,6 +145,14 @@
                     <input type="text" name="name" placeholder="Imię / Nazwa firmy" required>
                     <input type="email" name="email" placeholder="Adres e-mail" required>
                     <textarea name="message" rows="5" placeholder="Opisz krótko sytuację finansową podmiotu..." required></textarea>
+
+                    <div style="margin: 15px 0; display: flex; align-items: flex-start; gap: 10px; text-align: left;">
+                        <input type="checkbox" name="rodo_accept" id="rodo_accept" required style="width: auto; margin-top: 4px; cursor: pointer;">
+                        <label for="rodo_accept" style="font-size: 0.8rem; line-height: 1.4; color: #555; cursor: pointer;">
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych przez Kancelarię Adwokacką i Doradcy Restrukturyzacyjnego Rafał Musiał w celu obsługi i odpowiedzi na przesłane zapytanie. Zapoznałem/am się z <a href="/polityka-prywatnosci" target="_blank" style="color: #3b4a45; text-decoration: underline;">Polityką Prywatności</a>.
+                        </label>
+                    </div>
+
                     <button type="submit">ZAINICJUJ POMOC</button>
 
                     {% with messages = get_flashed_messages(with_categories=true) %}

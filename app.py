@@ -60,6 +60,12 @@ def adwokat():
             print("Wykryto i zablokowano bota spamującego (Adwokat)!")
             flash('Dziękujemy za kontakt. Wiadomość została zapisana i wysłana pomyślnie!', 'success')
             return redirect(url_for('adwokat') + '#kontakt')
+
+        # Weryfikacja akceptacji RODO
+        if not request.form.get('rodo_accept'):
+            flash('Musisz zaakceptować klauzulę przetwarzania danych osobowych, aby wysłać wiadomość.', 'danger')
+            return redirect(url_for('adwokat') + '#kontakt')
+
         imie = request.form.get('name')
         email = request.form.get('email')
         wiadomosc = request.form.get('message')
@@ -84,6 +90,12 @@ def doradca():
             print("Wykryto i zablokowano bota spamującego (Doradca)!")
             flash('Dziękujemy za kontakt. Formularz restrukturyzacyjny został bezpiecznie zapisany.', 'success')
             return redirect(url_for('doradca') + '#kontakt')
+
+        # Weryfikacja akceptacji RODO
+        if not request.form.get('rodo_accept'):
+            flash('Musisz zaakceptować klauzulę przetwarzania danych osobowych, aby wysłać wiadomość.', 'danger')
+            return redirect(url_for('doradca') + '#kontakt')
+
         imie = request.form.get('name')
         email = request.form.get('email')
         wiadomosc = request.form.get('message')
@@ -99,6 +111,9 @@ def doradca():
 
     return render_template('doradca.html')
 
+@app.route('/polityka-prywatnosci')
+def polityka_prywatnosci():
+    return render_template('polityka.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

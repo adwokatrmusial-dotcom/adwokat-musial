@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime
 import smtplib
+import os
 from email.mime.text import MIMEText
 from flask import Flask, render_template, request, flash, redirect, url_for
 
@@ -11,7 +12,7 @@ app.secret_key = 'super-tajny-klucz-kancelarii'
 SMTP_SERVER = "smtp.gmail.com"  # Zmień, jeśli masz pocztę inną niż Gmail (np. smtp.wp.pl)
 SMTP_PORT = 465
 MOJ_EMAIL = "adwokat.rmusial@gmail.com"  # Wpisz swój adres, z którego mail ma wychodzić
-HASLO_APLIKACJI = "lulebmieamqgfpgw"  # Tutaj wkleisz specjalne hasło aplikacji
+HASLO_APLIKACJI = os.environ.get('GMAIL_APP_PASSWORD')
 EMAIL_ODBIORCY = "adwokat.rmusial@gmail.com"  # Twój prywatny mail, na który chcesz dostawać powiadomienia
 
 

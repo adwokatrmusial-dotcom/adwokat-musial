@@ -1,7 +1,7 @@
 import csv
+import os
 from datetime import datetime
 import smtplib
-import os
 from email.mime.text import MIMEText
 from flask import Flask, render_template, request, flash, redirect, url_for
 

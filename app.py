@@ -1,5 +1,4 @@
 import csv
-import os
 from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
@@ -12,7 +11,7 @@ app.secret_key = 'super-tajny-klucz-kancelarii'
 SMTP_SERVER = "smtp.gmail.com"  # Zmień, jeśli masz pocztę inną niż Gmail (np. smtp.wp.pl)
 SMTP_PORT = 465
 MOJ_EMAIL = "adwokat.rmusial@gmail.com"  # Wpisz swój adres, z którego mail ma wychodzić
-HASLO_APLIKACJI = os.environ.get('GMAIL_APP_PASSWORD')
+HASLO_APLIKACJI = "ntrboqgeqeqvcfrd" # Tutaj wkleisz specjalne hasło aplikacji
 EMAIL_ODBIORCY = "adwokat.rmusial@gmail.com"  # Twój prywatny mail, na który chcesz dostawać powiadomienia
 
 

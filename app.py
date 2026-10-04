@@ -36,16 +36,14 @@ def wyslij_powiadomienie_email(rola, imie):
     msg['To'] = EMAIL_ODBIORCY
 
     try:
-        # Bezpieczne połączenie SSL
-        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
+        # Zmieniamy SMTP_SSL na zwykłe SMTP, ponieważ port 587 wymaga procedury STARTTLS
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10) as server:
+            server.starttls()  # To uruchamia bezpieczne szyfrowanie na porcie 587
             server.login(MOJ_EMAIL, HASLO_APLIKACJI)
             server.sendmail(MOJ_EMAIL, [EMAIL_ODBIORCY], msg.as_string())
         print("Powiadomienie e-mail zostało wysłane.")
     except Exception as e:
-        # Jeśli e-mail zawiedzie (np. brak internetu), wypisz błąd w konsoli.
-        # Dzięki temu aplikacja się nie zawiesi, a dane w pliku CSV i tak są bezpieczne!
         print(f"Błąd wysyłki e-mail: {e}")
-
 
 @app.route('/')
 def index():

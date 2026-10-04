@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+import os  # <- Dodaliśmy to do czytania zmiennych z Render
 import smtplib
 from email.mime.text import MIMEText
 from flask import Flask, render_template, request, flash, redirect, url_for
@@ -7,13 +8,12 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 app = Flask(__name__)
 app.secret_key = 'super-tajny-klucz-kancelarii'
 
-# ---- KONFIGURACJA SKRZYNKI POCZTOWEJ ----
-SMTP_SERVER = "smtp.gmail.com"  # Zmień, jeśli masz pocztę inną niż Gmail (np. smtp.wp.pl)
-SMTP_PORT = 465
-MOJ_EMAIL = "adwokat.rmusial@gmail.com"  # Wpisz swój adres, z którego mail ma wychodzić
-HASLO_APLIKACJI = "ntrb oqge qeqv cfrd" # Tutaj wkleisz specjalne hasło aplikacji
-EMAIL_ODBIORCY = "adwokat.rmusial@gmail.com"  # Twój prywatny mail, na który chcesz dostawać powiadomienia
-
+# ---- KONFIGURACJA SKRZYNKI POCZTOWEJ Z RENDER ENVIRONMENT VARIABLES ----
+SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", 465))
+MOJ_EMAIL = os.environ.get("MOJ_EMAIL", "adwokat.rmusial@gmail.com")
+HASLO_APLIKACJI = os.environ.get("HASLO_APLIKACJI")
+EMAIL_ODBIORCY = os.environ.get("MOJ_EMAIL", "adwokat.rmusial@gmail.com")
 
 def zapisz_do_pliku(rola, imie, email, wiadomosc):
     """Zapisuje zgłoszenie do pliku CSV z aktualną datą."""
